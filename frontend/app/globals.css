@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+:root {
+  --background: #030712;
+  --foreground: #F8FAFC;
+  
+  --primary-dark: #030712;
+  --secondary-dark: #07111F;
+  --card-dark: #0B1726;
+  --navy: #0F2742;
+  --electric-blue: #1D9BF0;
+  --cta-orange: #F59E0B;
+  --gold: #FBBF24;
+  --muted-text: #94A3B8;
+  --border-dark: rgba(255, 255, 255, 0.08);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-card-dark: var(--card-dark);
+  --color-navy: var(--navy);
+  --color-electric-blue: var(--electric-blue);
+  --color-cta-orange: var(--cta-orange);
+  --color-gold: var(--gold);
+  --color-muted-text: var(--muted-text);
+  --color-border-dark: var(--border-dark);
+  
+  --font-sans: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-accent: 'Montserrat', sans-serif;
+  
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow-blue: glow-blue 2s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glow-blue {
+  from { box-shadow: 0 0 10px rgba(29, 155, 240, 0.15); }
+  to { box-shadow: 0 0 25px rgba(29, 155, 240, 0.45); }
+}
+
+/* Custom Utilities for Glassmorphism & Neon Shadows */
+@utility glass-panel {
+  background-color: rgba(11, 23, 38, 0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@utility glass-card {
+  background: linear-gradient(135deg, rgba(11, 23, 38, 0.8) 0%, rgba(7, 17, 31, 0.6) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-blue-hover {
+  box-shadow: 0 0 0px rgba(29, 155, 240, 0);
+  transition: all 0.3s ease;
+}
+
+.glow-blue-hover:hover {
+  box-shadow: 0 0 20px rgba(29, 155, 240, 0.35);
+  border-color: rgba(29, 155, 240, 0.5) !important;
+}
+
+.glow-orange-hover {
+  box-shadow: 0 0 0px rgba(245, 158, 11, 0);
+  transition: all 0.3s ease;
+}
+
+.glow-orange-hover:hover {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+  border-color: rgba(245, 158, 11, 0.5) !important;
+}
+
+@utility text-gradient-gold {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility bg-gradient-cta {
+  background: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);
+}
+
+@utility bg-gradient-hero {
+  background: linear-gradient(135deg, #030712 0%, #07111F 45%, #0F2742 100%);
+}
+
+/* Global Reset and Scroll Setup */
+html, body {
+  background-color: #030712;
+  color: #F8FAFC;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  scroll-behavior: smooth !important; /* Force fluid native smooth-scrolling fallback */
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Lenis CSS configuration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Hide default Scrollbar or make it elegant */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0B1726;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1D9BF0;
+}
